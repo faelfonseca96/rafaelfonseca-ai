@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rafael Fonseca Lima | Product Manager de Gen AI</title>
+<meta name="description" content="Product Manager de Gen AI na Pagaleve, ex-iFood. Mais de 5 anos em produto e 3 milhões de usuários alcançados. Aberto a consultorias, mentorias e projetos paralelos." />
+<meta property="og:title" content="Rafael Fonseca Lima | Product Manager de Gen AI" />
+<meta property="og:description" content="Produto bom se mede pelo resultado. Mais de 5 anos em produto, 3M+ de usuários alcançados." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B1413'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='bold' fill='%234ADEB8' text-anchor='middle'%3ERF%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* Paleta: a escuridão carrega a marca */
+    --abismo:#0B1413;      /* fundo: petróleo quase preto */
+    --grafite:#101D1B;     /* superfícies */
+    --grafite-2:#142623;   /* superfícies elevadas / hover */
+    --linha:rgba(242,241,236,.08);
+    --marfim:#F2F1EC;      /* texto principal */
+    --nevoa:#9FAeAA;       /* texto secundário */
+    --sinal:#4ADEB8;       /* acento luminoso, evolução do petróleo */
+    --petroleo:#0F5E59;    /* herança da marca, profundidade */
+    --radius:16px;
+    --max:1120px;
+    --font-display:'Sora',sans-serif;
+    --font-serif:'Newsreader',serif;
+    --font-body:'Inter',sans-serif;
+    --font-mono:'IBM Plex Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--abismo);color:var(--marfim);
+    font-family:var(--font-body);font-size:16px;line-height:1.75;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  ::selection{background:var(--sinal);color:var(--abismo)}
+  a{color:var(--sinal);text-decoration:none}
+  a:hover{text-decoration:underline}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--sinal);outline-offset:3px;border-radius:4px}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+  .serif{font-family:var(--font-serif);font-style:italic;font-weight:500;color:var(--sinal)}
+
+  /* ---------- Fundo ambiente ---------- */
+  .glow{
+    position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(900px 600px at 85% -10%, rgba(15,94,89,.35), transparent 60%),
+      radial-gradient(700px 500px at -10% 40%, rgba(15,94,89,.18), transparent 60%);
+  }
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,20,19,.78);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--linha);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:var(--font-mono);font-size:.85rem;color:var(--marfim);letter-spacing:.02em}
+  .brand b{color:var(--sinal);font-weight:500}
+  .nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+  .nav-links a{font-size:.85rem;color:var(--nevoa);font-weight:500}
+  .nav-links a:hover{color:var(--marfim);text-decoration:none}
+  .nav-cta{
+    font-size:.82rem;font-weight:600;color:var(--abismo) !important;background:var(--sinal);
+    padding:9px 18px;border-radius:99px;transition:background .18s ease;
+  }
+  .nav-cta:hover{background:var(--marfim);text-decoration:none !important}
+  @media(max-width:720px){.nav-links li:not(:last-child){display:none}}
+
+  /* ---------- Hero ---------- */
+  header{padding:110px 0 72px;position:relative}
+  .hero-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:64px;align-items:center}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--sinal);margin-bottom:26px;
+    border:1px solid rgba(74,222,184,.25);border-radius:99px;padding:7px 16px;
+  }
+  .eyebrow::before{
+    content:'';width:7px;height:7px;border-radius:50%;background:var(--sinal);
+    box-shadow:0 0 10px var(--sinal);animation:pulse 2.4s ease infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  h1{
+    font-family:var(--font-display);font-weight:700;
+    font-size:clamp(2.3rem,5.2vw,4rem);line-height:1.08;letter-spacing:-.03em;
+    max-width:15ch;text-wrap:balance;
+  }
+  h1 .serif{font-size:1.05em;letter-spacing:-.01em}
+  .lede{margin-top:28px;font-size:1.08rem;color:var(--nevoa);max-width:52ch}
+  .lede strong{color:var(--marfim);font-weight:600}
+  .hero-actions{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.92rem;font-weight:600;padding:14px 26px;border-radius:99px;
+    border:1px solid transparent;cursor:pointer;
+    transition:background .18s ease,border-color .18s ease,color .18s ease,transform .18s ease;
+  }
+  .btn:hover{transform:translateY(-1px);text-decoration:none}
+  .btn-solid{background:var(--sinal);color:var(--abismo)}
+  .btn-solid:hover{background:var(--marfim)}
+  .btn-ghost{color:var(--marfim);border-color:rgba(242,241,236,.25)}
+  .btn-ghost:hover{border-color:var(--sinal);color:var(--sinal)}
+
+  .hero-photo{position:relative;justify-self:end;width:min(320px,100%)}
+  .hero-photo .frame{
+    position:relative;border-radius:24px;overflow:hidden;
+    border:1px solid rgba(74,222,184,.2);
+    box-shadow:0 30px 80px rgba(0,0,0,.5);
+  }
+  .hero-photo img{
+    width:100%;aspect-ratio:1;object-fit:cover;
+    filter:grayscale(1) contrast(1.05);
+  }
+  .hero-photo .frame::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(160deg, rgba(15,94,89,.55), rgba(11,20,19,.15) 55%, rgba(74,222,184,.18));
+    mix-blend-mode:color;
+  }
+  .hero-photo .badge{
+    position:absolute;left:16px;bottom:16px;z-index:2;
+    background:rgba(11,20,19,.85);border:1px solid var(--linha);backdrop-filter:blur(8px);
+    border-radius:99px;padding:8px 15px;
+    font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;color:var(--marfim);
+  }
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:44px}
+    .hero-photo{justify-self:start;order:-1;width:min(230px,62%)}
+    header{padding:72px 0 56px}
+  }
+
+  /* ---------- Painel de instrumentos (assinatura) ---------- */
+  .panel{
+    margin-top:72px;
+    border:1px solid var(--linha);border-radius:var(--radius);
+    background:linear-gradient(180deg, var(--grafite), rgba(16,29,27,.4));
+    display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden;
+  }
+  .panel .cell{padding:30px 32px;border-right:1px solid var(--linha);position:relative}
+  .panel .cell:last-child{border-right:none}
+  .panel .label{
+    font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--nevoa);
+  }
+  .panel .value{
+    font-family:var(--font-display);font-weight:700;font-size:2.5rem;
+    letter-spacing:-.02em;margin-top:10px;color:var(--marfim);
+    font-variant-numeric:tabular-nums;
+  }
+  .panel .value .unit{color:var(--sinal)}
+  .panel .hint{font-size:.78rem;color:var(--nevoa);margin-top:4px}
+  .panel .spark{position:absolute;right:24px;top:28px;opacity:.85}
+  .panel .spark path{
+    stroke:var(--sinal);stroke-width:2;fill:none;stroke-linecap:round;
+    stroke-dasharray:120;stroke-dashoffset:120;
+  }
+  .panel.armed .spark path{animation:draw 1.6s .3s ease forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @media(max-width:760px){
+    .panel{grid-template-columns:1fr}
+    .panel .cell{border-right:none;border-bottom:1px solid var(--linha)}
+    .panel .cell:last-child{border-bottom:none}
+  }
+
+  /* ---------- Ticker ---------- */
+  .ticker{
+    border-top:1px solid var(--linha);border-bottom:1px solid var(--linha);
+    margin-top:88px;padding:18px 0;overflow:hidden;white-space:nowrap;
+  }
+  .ticker-track{display:inline-flex;gap:0;animation:ticker 36s linear infinite}
+  .ticker:hover .ticker-track{animation-play-state:paused}
+  .ticker span{
+    font-family:var(--font-mono);font-size:.78rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--nevoa);padding:0 28px;
+  }
+  .ticker span::after{content:'·';color:var(--sinal);margin-left:56px}
+  @keyframes ticker{to{transform:translateX(-50%)}}
+
+  /* ---------- Seções ---------- */
+  section{padding:120px 0;scroll-margin-top:64px}
+  section + section{border-top:1px solid var(--linha)}
+  .kicker{
+    font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--sinal);display:block;margin-bottom:18px;
+  }
+  h2{
+    font-family:var(--font-display);font-weight:700;
+    font-size:clamp(1.7rem,3.4vw,2.5rem);letter-spacing:-.02em;line-height:1.15;
+    margin-bottom:16px;max-width:24ch;
+  }
+  .section-sub{color:var(--nevoa);max-width:58ch;margin-bottom:64px;font-size:1.02rem}
+  @media(max-width:720px){section{padding:80px 0}}
+
+  /* Sobre */
+  .statement{
+    font-family:var(--font-serif);font-style:italic;font-weight:400;
+    font-size:clamp(1.5rem,3vw,2.1rem);color:var(--marfim);
+    max-width:26ch;line-height:1.35;margin-bottom:64px;
+  }
+  .statement em{color:var(--sinal);font-style:italic}
+  .about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:72px;align-items:start}
+  .about-grid p{color:var(--nevoa)}
+  .about-grid p strong{color:var(--marfim);font-weight:600}
+  .about-grid p + p{margin-top:22px}
+  .fact-list{list-style:none;display:flex;flex-direction:column}
+  .fact-list li{
+    display:flex;gap:14px;align-items:baseline;font-size:.9rem;color:var(--nevoa);
+    padding:16px 0;border-bottom:1px solid var(--linha);
+  }
+  .fact-list li:first-child{border-top:1px solid var(--linha)}
+  .fact-list .k{
+    font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;
+    letter-spacing:.08em;color:var(--sinal);min-width:100px;flex-shrink:0;
+  }
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:44px}}
+
+  /* Experiência */
+  .timeline{list-style:none;position:relative;padding-left:32px}
+  .timeline::before{
+    content:'';position:absolute;left:7px;top:8px;bottom:8px;width:1px;
+    background:linear-gradient(180deg, var(--sinal), rgba(74,222,184,.06));
+  }
+  .timeline li{position:relative;padding-bottom:48px}
+  .timeline li:last-child{padding-bottom:0}
+  .timeline li::before{
+    content:'';position:absolute;left:-30px;top:8px;width:13px;height:13px;
+    border-radius:50%;background:var(--abismo);border:2px solid var(--sinal);
+    box-shadow:0 0 12px rgba(74,222,184,.4);
+  }
+  .t-period{font-family:var(--font-mono);font-size:.72rem;color:var(--sinal);letter-spacing:.08em}
+  .t-role{font-family:var(--font-display);font-weight:600;font-size:1.15rem;margin-top:6px;letter-spacing:-.01em}
+  .t-org{color:var(--nevoa);font-weight:500;font-size:.9rem;margin-top:2px}
+  .t-desc{color:var(--nevoa);font-size:.93rem;margin-top:10px;max-width:60ch}
+
+  /* Cases */
+  .case{
+    background:var(--grafite);border:1px solid var(--linha);border-radius:var(--radius);
+    padding:44px;transition:border-color .2s ease,transform .2s ease;
+  }
+  .case + .case{margin-top:24px}
+  .case:hover{border-color:rgba(74,222,184,.35);transform:translateY(-2px)}
+  .case-head{display:flex;justify-content:space-between;gap:18px;align-items:baseline;flex-wrap:wrap;margin-bottom:26px}
+  .case h3{font-family:var(--font-display);font-weight:600;font-size:1.35rem;letter-spacing:-.01em}
+  .case .tag{
+    font-family:var(--font-mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--sinal);border:1px solid rgba(74,222,184,.3);padding:6px 13px;border-radius:99px;white-space:nowrap;
+  }
+  .case-body{display:grid;grid-template-columns:1.8fr 1fr;gap:44px}
+  .case dl{display:flex;flex-direction:column;gap:18px}
+  .case dt{font-family:var(--font-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--sinal)}
+  .case dd{font-size:.94rem;color:var(--nevoa);margin-top:4px}
+  .case .result{
+    align-self:start;border-radius:14px;padding:28px;
+    background:linear-gradient(160deg, rgba(15,94,89,.35), rgba(74,222,184,.08));
+    border:1px solid rgba(74,222,184,.2);
+  }
+  .case .result .label{font-family:var(--font-mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.1em;color:var(--sinal)}
+  .case .result .num{
+    font-family:var(--font-display);font-weight:700;font-size:2.6rem;color:var(--marfim);
+    line-height:1.05;margin-top:10px;letter-spacing:-.02em;
+  }
+  .case .result .desc{font-size:.82rem;color:var(--nevoa);margin-top:10px}
+  @media(max-width:760px){.case-body{grid-template-columns:1fr}.case{padding:28px}}
+
+  /* Projetos: carrossel lateral */
+  .side-carousel{position:relative}
+  .side-track{
+    display:flex;gap:24px;overflow-x:auto;
+    scroll-snap-type:x mandatory;scroll-behavior:smooth;
+    scrollbar-width:none;-ms-overflow-style:none;
+    padding:4px 4px 12px;margin:-4px -4px 0;
+  }
+  .side-track::-webkit-scrollbar{display:none}
+  .side-card{
+    flex:0 0 min(420px,86%);scroll-snap-align:start;
+    background:var(--grafite);border:1px solid var(--linha);border-radius:var(--radius);
+    padding:36px;display:flex;flex-direction:column;gap:14px;
+    transition:border-color .2s ease,transform .2s ease;
+  }
+  .side-card:hover{border-color:rgba(74,222,184,.35);transform:translateY(-2px)}
+  .side-card h3{font-family:var(--font-display);font-weight:600;font-size:1.15rem;letter-spacing:-.01em}
+  .side-card .status{
+    font-family:var(--font-mono);font-size:.64rem;text-transform:uppercase;
+    letter-spacing:.1em;color:var(--sinal);
+  }
+  .side-card p{font-size:.92rem;color:var(--nevoa)}
+  .side-card .card-link{margin-top:auto;padding-top:6px}
+  .side-carousel::after{
+    content:'';position:absolute;top:0;right:0;bottom:12px;width:70px;
+    background:linear-gradient(to right,transparent,var(--abismo));
+    pointer-events:none;opacity:.9;
+  }
+  .side-nav{display:flex;gap:12px;justify-content:flex-end;margin-top:22px}
+  .side-nav button{
+    width:44px;height:44px;border-radius:50%;cursor:pointer;
+    background:transparent;border:1px solid var(--linha);color:var(--marfim);
+    font-family:var(--font-mono);font-size:1rem;
+    transition:border-color .2s ease,color .2s ease,background .2s ease;
+  }
+  .side-nav button:hover{border-color:var(--sinal);color:var(--sinal)}
+  .side-nav button:disabled{opacity:.3;cursor:default;border-color:var(--linha);color:var(--marfim)}
+  @media(max-width:760px){.side-card{padding:28px}}
+
+  /* Serviços */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .svc{
+    border:1px solid var(--linha);border-radius:var(--radius);padding:34px;
+    background:var(--grafite);transition:border-color .2s ease;
+  }
+  .svc:hover{border-color:rgba(74,222,184,.35)}
+  .svc .n{font-family:var(--font-mono);font-size:.7rem;color:var(--sinal);letter-spacing:.08em}
+  .svc h3{font-family:var(--font-display);font-weight:600;font-size:1.05rem;margin:16px 0 10px;letter-spacing:-.01em}
+  .svc p{font-size:.9rem;color:var(--nevoa)}
+  @media(max-width:860px){.svc-grid{grid-template-columns:1fr}}
+
+  /* Contato */
+  .contact{
+    border-radius:20px;padding:64px 56px;position:relative;overflow:hidden;
+    background:linear-gradient(140deg, var(--petroleo), #0A3B37 55%, var(--grafite));
+    border:1px solid rgba(74,222,184,.25);
+    display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;
+  }
+  .contact::before{
+    content:'';position:absolute;right:-80px;top:-80px;width:340px;height:340px;border-radius:50%;
+    background:radial-gradient(circle, rgba(74,222,184,.25), transparent 70%);
+  }
+  .contact h2{color:var(--marfim);margin-bottom:8px;max-width:none}
+  .contact h2 .serif{color:var(--sinal)}
+  .contact p{color:rgba(242,241,236,.72);max-width:44ch}
+  .contact .btn-solid{position:relative;z-index:1}
+  .contact-links{display:flex;gap:22px;margin-top:24px;flex-wrap:wrap;position:relative;z-index:1}
+  .contact-links a{color:var(--marfim);font-size:.9rem;border-bottom:1px solid rgba(242,241,236,.3)}
+  .contact-links a:hover{text-decoration:none;border-color:var(--sinal);color:var(--sinal)}
+  @media(max-width:720px){.contact{padding:40px 28px}}
+
+  footer{
+    padding:44px 0;font-family:var(--font-mono);font-size:.72rem;color:var(--nevoa);
+    display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    border-top:1px solid var(--linha);margin-top:120px;
+  }
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .ticker-track{animation:none}
+    .eyebrow::before{animation:none}
+    .panel.armed .spark path{animation:none;stroke-dashoffset:0}
+  }
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <span class="brand">rafael<b>fonseca</b>.ai</span>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#cases">Cases</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#contato" class="nav-cta">Vamos conversar</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="wrap">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">Product Manager · Gen AI · Fintech</span>
+      <h1>Produto bom se mede pelo <span class="serif">resultado</span>, não pelo lançamento.</h1>
+      <p class="lede">
+        Sou Rafael Fonseca Lima. Lidero a frente de Gen AI na <strong>Pagaleve</strong>,
+        fintech de Pix Parcelado. Antes, passei anos no <strong>iFood</strong> construindo
+        produtos para quem faz a entrega acontecer. Nas horas vagas, tiro ideias do papel
+        em projetos próprios.
+      </p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn btn-solid">Falar comigo</a>
+        <a href="https://www.linkedin.com/in/rafael-fonseca-lima/" class="btn btn-ghost" target="_blank" rel="noopener">Ver LinkedIn ↗</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="frame">
+        <img src="assets/rafael.jpg" alt="Rafael Fonseca Lima sorrindo, retrato profissional" width="640" height="640" fetchpriority="high" />
+      </div>
+      <span class="badge">Salvador · BA · Brasil</span>
+    </div>
+  </div>
+
+  <!-- Assinatura: painel de instrumentos com contadores animados -->
+  <div class="panel" id="panel">
+    <div class="cell">
+      <div class="label">Anos em produto</div>
+      <div class="value"><span class="unit">+</span><span class="count" data-target="5">0</span></div>
+      <div class="hint">fintech e foodtech</div>
+      <svg class="spark" width="72" height="26" viewBox="0 0 72 26" aria-hidden="true"><path d="M2 22 L14 18 L26 19 L38 12 L50 13 L62 6 L70 4"/></svg>
+    </div>
+    <div class="cell">
+      <div class="label">Usuários alcançados</div>
+      <div class="value"><span class="unit">+</span><span class="count" data-target="3">0</span><span class="unit">M</span></div>
+      <div class="hint">em produtos que liderei</div>
+      <svg class="spark" width="72" height="26" viewBox="0 0 72 26" aria-hidden="true"><path d="M2 23 L14 20 L26 15 L38 14 L50 9 L62 7 L70 3"/></svg>
+    </div>
+    <div class="cell">
+      <div class="label">Foco hoje</div>
+      <div class="value">Gen AI</div>
+      <div class="hint">liderando a frente na Pagaleve</div>
+      <svg class="spark" width="72" height="26" viewBox="0 0 72 26" aria-hidden="true"><path d="M2 20 L14 21 L26 16 L38 17 L50 10 L62 11 L70 5"/></svg>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Gen AI</span><span>LLMs em produção</span><span>Discovery contínuo</span><span>Fintech</span><span>Marketplaces</span><span>Decisão por dados</span><span>Pix Parcelado</span><span>Produto com método</span>
+    <span>Gen AI</span><span>LLMs em produção</span><span>Discovery contínuo</span><span>Fintech</span><span>Marketplaces</span><span>Decisão por dados</span><span>Pix Parcelado</span><span>Produto com método</span>
+  </div>
+</div>
+
+<section id="sobre" class="wrap">
+  <span class="kicker reveal">Sobre</span>
+  <p class="statement reveal">Engenheiro químico de formação. <em>Produteiro por opção.</em></p>
+  <div class="about-grid reveal">
+    <div>
+      <p>
+        Comecei em laboratório e terminei em produto. Da engenharia química trouxe o
+        hábito de tratar toda ideia como hipótese: testar, medir e descartar rápido o
+        que não funciona. Em produto encontrei o lugar onde esse método vira valor
+        para gente de verdade. Fiz a escolha e nunca mais olhei para trás.
+      </p>
+      <p>
+        Minha escola foi o <strong>iFood</strong>. Lá, cada decisão minha mexia com a renda de quem
+        estava na rua entregando, em produtos que alcançaram mais de 3 milhões de
+        pessoas. Aprendi cedo que feature entregue não é sucesso. Sucesso é a vida
+        do usuário melhorando de um jeito que dá para medir.
+      </p>
+      <p>
+        Hoje lidero a frente de Gen AI na <strong>Pagaleve</strong>. Meu trabalho é separar o que a IA
+        promete do que ela entrega: escolher os casos de uso certos, colocar em produção
+        com responsabilidade e provar o valor em números. Em fintech, confiança não é
+        diferencial, é pré-requisito.
+      </p>
+      <p>
+        Fora do expediente, construo um app de finanças pessoais e divido os bastidores
+        no Instagram. Se você está tentando fazer IA sair do slide e virar resultado,
+        provavelmente temos assunto.
+      </p>
+    </div>
+    <ul class="fact-list">
+      <li><span class="k">Onde estou</span> Salvador, BA, trabalhando remoto</li>
+      <li><span class="k">Foco</span> Gen AI, fintech, marketplaces</li>
+      <li><span class="k">Formação</span> Engenharia Química + MBA Tech for Business, PUC-RS (IA, Data Science e Big Data)</li>
+      <li><span class="k">Como trabalho</span> Discovery contínuo, decisão por dados, LLMs em produção</li>
+      <li><span class="k">Idiomas</span> Português e Inglês</li>
+    </ul>
+  </div>
+</section>
+
+<section id="experiencia" class="wrap">
+  <span class="kicker reveal">Experiência</span>
+  <h2 class="reveal">Cada etapa com o problema que fui <span class="serif">chamado</span> para resolver.</h2>
+  <p class="section-sub reveal">Do funil de entrada do entregador ao topo da pirâmide, e de lá para a fronteira da IA generativa em fintech.</p>
+  <ul class="timeline reveal">
+    <li>
+      <span class="t-period">2026 até hoje</span>
+      <div class="t-role">Product Manager, Gen AI</div>
+      <div class="t-org">Pagaleve · fintech de Pix Parcelado</div>
+      <p class="t-desc">
+        Lidero a frente de Gen AI: estratégia, roadmap e entrega de produtos com IA
+        generativa aplicados ao negócio, sempre com métrica de sucesso definida antes
+        de qualquer linha de código. Primeiro resultado em produção: cerca de
+        R$ 450 mil por ano de economia em atendimento.
+      </p>
+    </li>
+    <li>
+      <span class="t-period">2025 a 2026</span>
+      <div class="t-role">Product Manager, Benefícios e Super Entregadores</div>
+      <div class="t-org">iFood · foodtech</div>
+      <p class="t-desc">
+        Último ciclo no iFood, cuidando dos produtos de benefícios e do programa de
+        Super Entregadores: reconhecer e reter os melhores parceiros da operação.
+      </p>
+    </li>
+    <li>
+      <span class="t-period">2023 a 2025</span>
+      <div class="t-role">Product Manager, Gestão de Perfil e Performance</div>
+      <div class="t-org">iFood · foodtech</div>
+      <p class="t-desc">
+        Evolução da gestão de perfil no App do Entregador e criação dos produtos de
+        performance, o Score de entregadores e o Saúde da Conta. Resultados: 20% mais
+        atualizações de dados cadastrais, 80% menos falhas no fluxo de revalidação de
+        CNH, 25% menos inconsistências de pagamento e 10% menos comportamentos
+        abusivos na plataforma.
+      </p>
+    </li>
+    <li>
+      <span class="t-period">2021 a 2023</span>
+      <div class="t-role">Product Manager, Onboarding, Aquisição e Prevenção à Fraude (KYC)</div>
+      <div class="t-org">iFood · foodtech</div>
+      <p class="t-desc">
+        Crescimento do supply de entregadores equilibrando conversão e segurança:
+        evolução dos fluxos de onboarding e validação documental, biometria facial,
+        verificação de identidade e background check. Mais gente entrando na
+        plataforma, com menos fraude e dados mais confiáveis.
+      </p>
+    </li>
+    <li>
+      <span class="t-period">2026</span>
+      <div class="t-role">MBA em Technology for Business: AI, Data Science e Big Data</div>
+      <div class="t-org">PUC-RS</div>
+      <p class="t-desc">A base técnica que uso todo dia para conversar de igual para igual com engenharia e dados.</p>
+    </li>
+  </ul>
+</section>
+
+<section id="cases" class="wrap">
+  <span class="kicker reveal">Cases selecionados</span>
+  <h2 class="reveal">Poucos e <span class="serif">profundos</span>.</h2>
+  <p class="section-sub reveal">Em cada um: o contexto, o desafio, o que eu fiz e o que mudou no final.</p>
+
+  <article class="case reveal">
+    <div class="case-head">
+      <h3>Gen AI no core de uma fintech</h3>
+      <span class="tag">Pagaleve · Gen AI</span>
+    </div>
+    <div class="case-body">
+      <dl>
+        <div><dt>Contexto</dt><dd>Fintech de Pix Parcelado com operação intensiva em atendimento e análise, querendo usar IA generativa sem colocar a confiança do cliente em risco.</dd></div>
+        <div><dt>Desafio</dt><dd>Sair de provas de conceito isoladas para features de IA rodando em produção, com governança, custo sob controle e critério claro de sucesso.</dd></div>
+        <div><dt>Meu papel</dt><dd>Defini a estratégia da frente de Gen AI, priorizei os casos de uso por impacto e viabilidade, e liderei o ciclo completo até o lançamento.</dd></div>
+      </dl>
+      <div class="result">
+        <div class="label">Resultado</div>
+        <div class="num">R$ 450k</div>
+        <div class="desc">de economia anual estimada em atendimento, com IA generativa resolvendo em produção</div>
+      </div>
+    </div>
+  </article>
+
+  <article class="case reveal">
+    <div class="case-head">
+      <h3>Produtos para quem entrega, em escala</h3>
+      <span class="tag">iFood · Marketplace</span>
+    </div>
+    <div class="case-body">
+      <dl>
+        <div><dt>Contexto</dt><dd>Milhões de entregadores usando o app para trabalhar todos os dias. Cada decisão de produto mexia com a renda de gente de verdade.</dd></div>
+        <div><dt>Desafio</dt><dd>Cinco anos de jornada cobrindo o ciclo inteiro do entregador: entrar na plataforma com segurança, manter dados confiáveis, performar bem e ser reconhecido por isso.</dd></div>
+        <div><dt>Meu papel</dt><dd>Liderei produtos de onboarding e prevenção à fraude (KYC), gestão de perfil, performance (Score e Saúde da Conta) e benefícios, sempre com discovery contínuo e decisão por dados.</dd></div>
+      </dl>
+      <div class="result">
+        <div class="label">Resultados</div>
+        <div class="num">-80%</div>
+        <div class="desc">de falhas operacionais na revalidação de CNH, além de 20% mais atualizações cadastrais, 25% menos inconsistências de pagamento e 10% menos comportamentos abusivos na plataforma</div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<section id="projetos" class="wrap">
+  <span class="kicker reveal">Construindo por fora</span>
+  <h2 class="reveal">O ciclo completo, <span class="serif">sem rede</span> de proteção.</h2>
+  <p class="section-sub reveal">Projetos próprios onde exercito produto do zero ao usuário.</p>
+  <div class="side-carousel">
+    <div class="side-track" id="sideTrack">
+      <article class="side-card reveal">
+        <span class="status">Em construção · 2026</span>
+        <h3>Cauda, finanças pessoais para o brasileiro</h3>
+        <p>
+          App de gestão financeira com dashboard de KPIs, navegação mensal e histórica,
+          cartões e investimentos. Desenhado para o jeito brasileiro de organizar dinheiro
+          e construído com IA em todo o ciclo de desenvolvimento.
+        </p>
+      </article>
+      <article class="side-card reveal">
+        <span class="status">No ar · Produto</span>
+        <h3>Foco, gestão de tarefas para TDAH</h3>
+        <p>
+          App de tarefas desenhado para reduzir procrastinação e sobrecarga: menos
+          fricção, menos ruído, um passo de cada vez. Publicado e em uso real,
+          do problema ao produto no ar.
+        </p>
+        <p class="card-link"><a href="https://easy-focus2.lovable.app/" target="_blank" rel="noopener">Conhecer o Foco ↗</a></p>
+      </article>
+      <article class="side-card reveal">
+        <span class="status">Ativo · Conteúdo</span>
+        <h3>@rafaelfonseca.ai no Instagram</h3>
+        <p>
+          Onde compartilho na prática o que aprendo construindo produtos de IA: bastidores
+          de decisões de produto, ferramentas, erros e acertos. Sem teoria requentada,
+          só o que testei de verdade.
+        </p>
+        <p class="card-link"><a href="https://www.instagram.com/rafaelfonseca.ai/" target="_blank" rel="noopener">Seguir no Instagram ↗</a></p>
+      </article>
+    </div>
+    <div class="side-nav">
+      <button id="sidePrev" aria-label="Projeto anterior" disabled>←</button>
+      <button id="sideNext" aria-label="Próximo projeto">→</button>
+    </div>
+  </div>
+</section>
+
+<section id="servicos" class="wrap">
+  <span class="kicker reveal">Como posso ajudar</span>
+  <h2 class="reveal">Três formas de trabalhar <span class="serif">comigo</span>.</h2>
+  <p class="section-sub reveal">Minha dedicação principal é à Pagaleve. Fora dela, tenho espaço para consultorias pontuais, mentorias e projetos paralelos que façam sentido para os dois lados.</p>
+  <div class="svc-grid">
+    <div class="svc reveal">
+      <span class="n">/01</span>
+      <h3>Estratégia de produto com IA</h3>
+      <p>Do mapa de casos de uso ao roadmap: onde IA generativa gera valor real no seu negócio, e onde é só hype caro.</p>
+    </div>
+    <div class="svc reveal">
+      <span class="n">/02</span>
+      <h3>Discovery e validação de MVP</h3>
+      <p>Estruturar o problema, ouvir usuários de verdade e chegar a um MVP enxuto com critério de sucesso definido antes de construir.</p>
+    </div>
+    <div class="svc reveal">
+      <span class="n">/03</span>
+      <h3>Mentoria e advisory de PM</h3>
+      <p>Apoio a founders e PMs entrando em produtos de IA: rituais, métricas, priorização e como conversar com engenharia sem ruído.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contato" class="wrap">
+  <div class="contact reveal">
+    <div>
+      <h2>Vamos construir <span class="serif">algo?</span></h2>
+      <p>Me conte o problema em duas linhas. Se eu puder ajudar, marcamos uma conversa.</p>
+      <div class="contact-links">
+        <a href="mailto:rafaelfonsecapm@gmail.com">rafaelfonsecapm@gmail.com</a>
+        <a href="https://www.linkedin.com/in/rafael-fonseca-lima/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://www.instagram.com/rafaelfonseca.ai/" target="_blank" rel="noopener">Instagram ↗</a>
+      </div>
+    </div>
+    <a href="https://wa.me/5534984337431?text=Oi%20Rafael!%20Vi%20seu%20site%20e%20queria%20conversar%20sobre%20um%20projeto." class="btn btn-solid" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>© 2026 Rafael Fonseca Lima</span>
+  <span>Salvador · BA · Brasil</span>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Navegação por âncora robusta
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const alvo = document.querySelector(a.getAttribute('href'));
+      if(alvo){ e.preventDefault(); alvo.scrollIntoView({behavior:'smooth',block:'start'}); }
+    });
+  });
+
+  // Painel de instrumentos: contadores animados
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const panel = document.getElementById('panel');
+  const pio = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting) return;
+      panel.classList.add('armed');
+      document.querySelectorAll('.count').forEach(el=>{
+        const target = parseInt(el.dataset.target,10);
+        if(reduced){ el.textContent = target; return; }
+        const dur = 1200, t0 = performance.now();
+        const tick = (t)=>{
+          const p = Math.min((t-t0)/dur,1);
+          el.textContent = Math.round(target * (1-Math.pow(1-p,3)));
+          if(p<1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+      pio.disconnect();
+    });
+  },{threshold:.4});
+  pio.observe(panel);
+  // Carrossel de projetos
+  const track = document.getElementById('sideTrack');
+  const prev = document.getElementById('sidePrev');
+  const next = document.getElementById('sideNext');
+  if(track && prev && next){
+    const step = () => {
+      const card = track.querySelector('.side-card');
+      return card ? card.offsetWidth + 24 : 420;
+    };
+    prev.addEventListener('click', () => track.scrollBy({left:-step(),behavior:'smooth'}));
+    next.addEventListener('click', () => track.scrollBy({left:step(),behavior:'smooth'}));
+    const syncNav = () => {
+      prev.disabled = track.scrollLeft <= 4;
+      next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
+    };
+    track.addEventListener('scroll', syncNav, {passive:true});
+    window.addEventListener('resize', syncNav);
+    syncNav();
+  }
+</script>
+</body>
+</html>
