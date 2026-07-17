@@ -70,7 +70,14 @@
     padding:9px 18px;border-radius:99px;transition:background .18s ease;
   }
   .nav-cta:hover{background:var(--marfim);text-decoration:none !important}
-  @media(max-width:720px){.nav-links li:not(:last-child){display:none}}
+  .lang-btn{
+    font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;
+    color:var(--nevoa);background:transparent;cursor:pointer;
+    border:1px solid var(--linha);border-radius:99px;padding:8px 14px;
+    transition:color .18s ease,border-color .18s ease;
+  }
+  .lang-btn:hover{color:var(--sinal);border-color:rgba(74,222,184,.4)}
+  @media(max-width:720px){.nav-links li:not(:nth-last-child(-n+2)){display:none}}
 
   /* ---------- Hero ---------- */
   header{padding:110px 0 72px;position:relative}
@@ -368,6 +375,7 @@
       <li><a href="#cases">Cases</a></li>
       <li><a href="#projetos">Projetos</a></li>
       <li><a href="#contato" class="nav-cta">Vamos conversar</a></li>
+      <li><button id="langBtn" class="lang-btn" aria-label="Switch to English">EN</button></li>
     </ul>
   </div>
 </nav>
@@ -708,6 +716,119 @@
     window.addEventListener('resize', syncNav);
     syncNav();
   }
+  // ---------- Idioma PT/EN ----------
+  const EN = [
+    ['.nav-links li:nth-child(1) a', 'About'],
+    ['.nav-links li:nth-child(2) a', 'Experience'],
+    ['.nav-links li:nth-child(3) a', 'Cases'],
+    ['.nav-links li:nth-child(4) a', 'Projects'],
+    ['.nav-cta', "Let's talk"],
+    ['h1', 'Good product is measured by <span class="serif">outcomes</span>, not launches.'],
+    ['.lede', 'I\'m Rafael Fonseca Lima. I lead the Gen AI front at <strong>Pagaleve</strong>, a Brazilian BNPL fintech. Before that, I spent years at <strong>iFood</strong> building products for the people who make delivery happen. After hours, I turn ideas into products of my own.'],
+    ['.hero-actions .btn-solid', 'Get in touch'],
+    ['.hero-actions .btn-ghost', 'View LinkedIn ↗'],
+    ['.hero-photo .badge', 'Salvador · Bahia · Brazil'],
+    ['#panel .cell:nth-child(1) .label', 'Years in product'],
+    ['#panel .cell:nth-child(1) .hint', 'fintech and foodtech'],
+    ['#panel .cell:nth-child(2) .label', 'Users reached'],
+    ['#panel .cell:nth-child(2) .hint', 'across products I led'],
+    ['#panel .cell:nth-child(3) .label', 'Focus today'],
+    ['#panel .cell:nth-child(3) .hint', 'leading the front at Pagaleve'],
+    ['.ticker-track', '<span>Gen AI</span><span>LLMs in production</span><span>Continuous discovery</span><span>Fintech</span><span>Marketplaces</span><span>Data-driven decisions</span><span>BNPL</span><span>Product with method</span><span>Gen AI</span><span>LLMs in production</span><span>Continuous discovery</span><span>Fintech</span><span>Marketplaces</span><span>Data-driven decisions</span><span>BNPL</span><span>Product with method</span>'],
+    ['#sobre .kicker', 'About'],
+    ['#sobre .statement', 'Chemical engineer by training. <em>Product person by choice.</em>'],
+    ['#sobre .about-grid > div p:nth-of-type(1)', 'I started in a lab and ended up in product. From chemical engineering I brought the habit of treating every idea as a hypothesis: test, measure, and quickly discard what does not work. In product I found the place where that method turns into value for real people. I made the choice and never looked back.'],
+    ['#sobre .about-grid > div p:nth-of-type(2)', 'My school was <strong>iFood</strong>. There, every decision I made touched the income of people out delivering, on products that reached more than 3 million users. I learned early that a shipped feature is not success. Success is the user\'s life improving in a way you can measure.'],
+    ['#sobre .about-grid > div p:nth-of-type(3)', 'Today I lead the Gen AI front at <strong>Pagaleve</strong>. My job is to separate what AI promises from what it actually delivers: choosing the right use cases, shipping to production responsibly, and proving the value in numbers. In fintech, trust is not a differentiator. It is a prerequisite.'],
+    ['#sobre .about-grid > div p:nth-of-type(4)', 'Outside work hours, I build a personal finance app and share the behind-the-scenes on Instagram. If you are trying to get AI out of the slide deck and into real results, we probably have something to talk about.'],
+    ['.fact-list li:nth-child(1)', '<span class="k">Based in</span> Salvador, Brazil, working remotely'],
+    ['.fact-list li:nth-child(2)', '<span class="k">Focus</span> Gen AI, fintech, marketplaces'],
+    ['.fact-list li:nth-child(3)', '<span class="k">Education</span> Chemical Engineering + MBA in Tech for Business, PUC-RS (AI, Data Science and Big Data)'],
+    ['.fact-list li:nth-child(4)', '<span class="k">How I work</span> Continuous discovery, data-driven decisions, LLMs in production'],
+    ['.fact-list li:nth-child(5)', '<span class="k">Languages</span> Portuguese and English'],
+    ['#experiencia .kicker', 'Experience'],
+    ['#experiencia h2', 'Every step with a problem I was <span class="serif">brought in</span> to solve.'],
+    ['#experiencia .section-sub', 'From the courier acquisition funnel to the top of the pyramid, and from there to the frontier of generative AI in fintech.'],
+    ['#experiencia .timeline li:nth-child(1) .t-period', '2026 to present'],
+    ['#experiencia .timeline li:nth-child(1) .t-org', 'Pagaleve · BNPL fintech'],
+    ['#experiencia .timeline li:nth-child(1) .t-desc', 'I lead the Gen AI front: strategy, roadmap, and delivery of generative AI products applied to the business, always with success metrics defined before any line of code. First result in production: around R$ 450k per year in customer service savings.'],
+    ['#experiencia .timeline li:nth-child(2) .t-period', '2025 to 2026'],
+    ['#experiencia .timeline li:nth-child(2) .t-role', 'Product Manager, Benefits and Super Couriers'],
+    ['#experiencia .timeline li:nth-child(2) .t-desc', 'My last cycle at iFood, owning the benefits products and the Super Couriers program: recognizing and retaining the best partners in the operation.'],
+    ['#experiencia .timeline li:nth-child(3) .t-period', '2023 to 2025'],
+    ['#experiencia .timeline li:nth-child(3) .t-role', 'Product Manager, Profile Management and Performance'],
+    ['#experiencia .timeline li:nth-child(3) .t-desc', 'Evolved profile management in the Courier App and created the performance products, the courier Score and Account Health. Results: 20% more registration data updates, 80% fewer failures in the driver\'s license (CNH) revalidation flow, 25% fewer payment inconsistencies, and 10% less abusive behavior on the platform.'],
+    ['#experiencia .timeline li:nth-child(4) .t-period', '2021 to 2023'],
+    ['#experiencia .timeline li:nth-child(4) .t-role', 'Product Manager, Onboarding, Acquisition and Fraud Prevention (KYC)'],
+    ['#experiencia .timeline li:nth-child(4) .t-desc', 'Grew the courier supply balancing conversion and safety: evolved onboarding and document validation flows, facial biometrics, identity verification, and background checks. More people joining the platform, with less fraud and more reliable data.'],
+    ['#experiencia .timeline li:nth-child(5) .t-role', 'MBA in Technology for Business: AI, Data Science and Big Data'],
+    ['#experiencia .timeline li:nth-child(5) .t-desc', 'The technical foundation I use every day to talk with engineering and data teams as an equal.'],
+    ['#cases .kicker', 'Selected cases'],
+    ['#cases h2', 'Few and <span class="serif">deep</span>.'],
+    ['#cases .section-sub', 'For each one: the context, the challenge, what I did, and what changed in the end.'],
+    ['#cases .case:nth-of-type(1) h3', 'Gen AI at the core of a fintech'],
+    ['#cases .case:nth-of-type(1) dl div:nth-of-type(1) dt', 'Context'],
+    ['#cases .case:nth-of-type(1) dl div:nth-of-type(1) dd', 'A Brazilian BNPL fintech with a service-intensive operation, wanting to use generative AI without putting customer trust at risk.'],
+    ['#cases .case:nth-of-type(1) dl div:nth-of-type(2) dt', 'Challenge'],
+    ['#cases .case:nth-of-type(1) dl div:nth-of-type(2) dd', 'Moving from isolated proofs of concept to AI features running in production, with governance, cost under control, and clear success criteria.'],
+    ['#cases .case:nth-of-type(1) dl div:nth-of-type(3) dt', 'My role'],
+    ['#cases .case:nth-of-type(1) dl div:nth-of-type(3) dd', 'Defined the Gen AI strategy, prioritized use cases by impact and feasibility, and led the full cycle through launch.'],
+    ['#cases .case:nth-of-type(1) .result .label', 'Result'],
+    ['#cases .case:nth-of-type(1) .result .desc', 'in estimated annual customer service savings, with generative AI resolving in production'],
+    ['#cases .case:nth-of-type(2) h3', 'Products for delivery partners, at scale'],
+    ['#cases .case:nth-of-type(2) dl div:nth-of-type(1) dt', 'Context'],
+    ['#cases .case:nth-of-type(2) dl div:nth-of-type(1) dd', 'Millions of couriers using the app to work every day. Every product decision touched real people\'s income.'],
+    ['#cases .case:nth-of-type(2) dl div:nth-of-type(2) dt', 'Challenge'],
+    ['#cases .case:nth-of-type(2) dl div:nth-of-type(2) dd', 'A five-year journey covering the courier\'s full cycle: joining the platform safely, keeping data reliable, performing well, and being recognized for it.'],
+    ['#cases .case:nth-of-type(2) dl div:nth-of-type(3) dt', 'My role'],
+    ['#cases .case:nth-of-type(2) dl div:nth-of-type(3) dd', 'Led products across onboarding and fraud prevention (KYC), profile management, performance (Score and Account Health), and benefits, always with continuous discovery and data-driven decisions.'],
+    ['#cases .case:nth-of-type(2) .result .label', 'Results'],
+    ['#cases .case:nth-of-type(2) .result .desc', 'fewer operational failures in driver\'s license (CNH) revalidation, plus 20% more registration updates, 25% fewer payment inconsistencies, and 10% less abusive behavior on the platform'],
+    ['#projetos .kicker', 'Building on the side'],
+    ['#projetos h2', 'The full cycle, with <span class="serif">no safety net</span>.'],
+    ['#projetos .section-sub', 'Personal projects where I practice product from zero to user.'],
+    ['#projetos .side-card:nth-child(1) .status', 'In progress · 2026'],
+    ['#projetos .side-card:nth-child(1) h3', 'Cauda, personal finance for Brazilians'],
+    ['#projetos .side-card:nth-child(1) p', 'A personal finance app with a KPI dashboard, monthly and historical navigation, cards and investments. Designed for the Brazilian way of organizing money and built with AI across the whole development cycle.'],
+    ['#projetos .side-card:nth-child(2) .status', 'Live · Product'],
+    ['#projetos .side-card:nth-child(2) h3', 'Foco, task management for ADHD'],
+    ['#projetos .side-card:nth-child(2) p:nth-of-type(1)', 'A task app designed to reduce procrastination and overwhelm: less friction, less noise, one step at a time. Published and in real use, from problem to product live.'],
+    ['#projetos .side-card:nth-child(2) .card-link a', 'Check out Foco ↗'],
+    ['#projetos .side-card:nth-child(3) .status', 'Active · Content'],
+    ['#projetos .side-card:nth-child(3) h3', '@rafaelfonseca.ai on Instagram'],
+    ['#projetos .side-card:nth-child(3) p:nth-of-type(1)', 'Where I share what I learn building AI products in practice: behind the scenes of product decisions, tools, mistakes and wins. No recycled theory, only what I have actually tested.'],
+    ['#projetos .side-card:nth-child(3) .card-link a', 'Follow on Instagram ↗'],
+    ['#servicos .kicker', 'How I can help'],
+    ['#servicos h2', 'Three ways to work <span class="serif">with me</span>.'],
+    ['#servicos .section-sub', 'My primary commitment is to Pagaleve. Beyond it, I have room for focused consulting, mentoring, and side projects that make sense for both sides.'],
+    ['#servicos .svc:nth-child(1) h3', 'AI product strategy'],
+    ['#servicos .svc:nth-child(1) p', 'From the use case map to the roadmap: where generative AI creates real value in your business, and where it is just expensive hype.'],
+    ['#servicos .svc:nth-child(2) h3', 'Discovery and MVP validation'],
+    ['#servicos .svc:nth-child(2) p', 'Framing the problem, listening to real users, and getting to a lean MVP with success criteria defined before building.'],
+    ['#servicos .svc:nth-child(3) h3', 'PM mentoring and advisory'],
+    ['#servicos .svc:nth-child(3) p', 'Support for founders and PMs moving into AI products: rituals, metrics, prioritization, and how to talk with engineering without noise.'],
+    ['#contato .contact h2', 'Shall we build <span class="serif">something?</span>'],
+    ['#contato .contact > div > p', 'Tell me the problem in two lines. If I can help, we set up a call.'],
+    ['#contato .contact > .btn-solid', 'Message me on WhatsApp'],
+    ['footer span:nth-child(2)', 'Salvador · Bahia · Brazil']
+  ];
+  const PT = new Map();
+  let lang = 'pt';
+  const langBtn = document.getElementById('langBtn');
+  langBtn.addEventListener('click', () => {
+    const toEN = lang === 'pt';
+    EN.forEach(([sel, en]) => {
+      const el = document.querySelector(sel);
+      if(!el) return;
+      if(toEN && !PT.has(sel)) PT.set(sel, el.innerHTML);
+      el.innerHTML = toEN ? en : PT.get(sel);
+    });
+    lang = toEN ? 'en' : 'pt';
+    document.documentElement.lang = toEN ? 'en' : 'pt-BR';
+    document.title = toEN ? 'Rafael Fonseca Lima | Gen AI Product Manager' : 'Rafael Fonseca Lima | Product Manager de Gen AI';
+    langBtn.textContent = toEN ? 'PT' : 'EN';
+    langBtn.setAttribute('aria-label', toEN ? 'Mudar para português' : 'Switch to English');
+  });
 </script>
 </body>
 </html>
